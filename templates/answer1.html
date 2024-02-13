@@ -13,6 +13,27 @@
             background-color: #f0f0f0;
         }
 
+        .img-speaker {
+            width: 50px;
+            height: 50px;
+            float: right;
+        }
+
+        .img-sos {
+            float: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            float: right;
+        }
+
+        .img-microphone {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            float: center;
+
+        }
         .container {
             height: 650px;
             text-align: center;
@@ -30,7 +51,7 @@
             height: auto;
             border: 2px solid #007bff;
             border-radius: 8px;
-            padding: 50px;
+            padding: 60px 30px 60px 30px;
             margin-bottom: 30px;
         }
 
@@ -41,18 +62,21 @@
         }
 
         .grid-container {
-            display: grid;
-            grid-template-rows: repeat(2, auto);
-            grid-gap: 20px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-top: 70px;
             margin-bottom: 70px;
         }
 
-        .grid-row {
+        /* .grid-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 50px;
-        }
+        } */
 
         .answer {
             padding: 50px;
@@ -96,7 +120,7 @@
         .next-button {
             width: 150px;
             height: 80px;
-            float:center;
+            float: center;
         }
 
         input[type="button"]:hover {
@@ -120,10 +144,10 @@
                 /* เพิ่มบรรทัดนี้ */
             }
 
-            .grid-row {
+            /* .grid-row {
                 padding: 1px;
                 grid-template-columns: repeat(1, 1fr);
-            }
+            } */
 
             .answer {
                 padding: 15px;
@@ -148,25 +172,19 @@
     <div class="container">
         <div class="title-container">
             <h1>ตอนนี้คุณมีอาการยังไงบ้าง</h1>
-            <img src="pic/speaker.png" alt="Speaker" style="float: right;">
+            <img src="pic/speaker.png" alt="Speaker" style="float: right;" class="img-speaker">
         </div>
         <form action="/answer" method="POST">
             <div class="grid-container">
-                <div class="grid-row">
-                    <div class="answer" onclick="selectAnswer(this, 1)">1. ปวดหัว</div>
-                    <div class="answer" onclick="selectAnswer(this, 2)">2. ปวดหัว</div>
-                    <div class="answer" onclick="selectAnswer(this, 3)">3. ปวดหัว</div>
-                </div>
-                <div class="grid-row">
-                    <div class="answer" onclick="selectAnswer(this, 4)">4. ปวดหัว</div>
-                    <div class="answer" onclick="selectAnswer(this, 5)">5. ปวดหัว</div>
-                    <div class="answer" onclick="selectAnswer(this, 6)">6. ปวดหัว</div>
-                </div>
+                <img src="pic/microphone.jpg" alt="Speaker" style="float: right;" class="img-microphone">
             </div>
             <!-- <input type="button" value="Back" onclick="back()" class="back-button"> -->
             <a href="answer2.html" type="submit" value="Next" class="next-button">Next</a>
             <!-- <input type="submit" value="Next" class="next-button" onclick="window.location.href='answer2.html'"> -->
         </form>
+        <a href="answer1-sos.html">
+            <img src="pic/sos.jpg" alt="SOS" style="float: left;" class="img-sos">
+        </a>
     </div>
 
     <script>
