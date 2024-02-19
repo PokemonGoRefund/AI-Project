@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .delete-form {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Admin Page</h1>
+    <form action="/add_question" method="post">
+        <label for="question">Question:</label><br>
+        <input type="text" id="question" name="question" required><br>
+        <label for="answer">Answer:</label><br>
+        <input type="text" id="answer" name="answer" required><br>
+        <label for="choice1">Choice 1:</label><br>
+        <input type="text" id="choice1" name="choice1" required><br>
+        <label for="choice2">Choice 2:</label><br>
+        <input type="text" id="choice2" name="choice2" required><br>
+        <label for="choice3">Choice 3:</label><br>
+        <input type="text" id="choice3" name="choice3" required><br>
+        <label for="choice4">Choice 4:</label><br>
+        <input type="text" id="choice4" name="choice4" required><br>
+        <button type="submit">Add Question</button>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Actions</th>
+        </tr>
+        {% for q in questions %}
+        <tr>
+            <td>{{ q[0] }}</td>
+            <td>{{ q[1] }}</td>
+            <td>{{ q[2] }}</td>
+            <td>
+                <form class="delete-form" action="/delete_question/{{ q[0] }}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

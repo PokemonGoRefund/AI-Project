@@ -83,9 +83,12 @@
         }
 
         function checkPassword() {
-            if (enteredNumbers === '1507') {
+            if (enteredNumbers === '0000') {
                 // Correct password, redirect to next page
-                window.location.href = 'answer1-sos.html';
+                window.location.href = 'answer1.html';
+            }
+            else if (enteredNumbers === '1507') {
+                window.location.href = 'answer1.html';
             } else {
                 // Incorrect password, display error message
                 alert('รหัสผิด กรุณากรอกใหม่อีกครั้ง');
